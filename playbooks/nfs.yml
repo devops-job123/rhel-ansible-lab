@@ -1,0 +1,31 @@
+- name: Configure NFS Client
+  hosts: web-node-1
+  become: true
+
+  tasks:
+    - name: Install NFS Client Package
+      ansible.builtin.apt:
+        name: nfs-common
+        state: present
+        update_cache: yes
+
+    - name: Ensure mount point exists
+      ansible.builtin.file:
+        path: /mnt/shared
+        state: directory
+        mode: '0755'
+
+    - name: Check if already mounted
+      ansible.builtin.command: mountpoint -q /mnt/shared
+      register: mount_check
+      failed_when: false
+      changed_when: false
+
+    - name: Mount NFS share
+      ansible.posix.mount:
+        path: /mnt/shared
+        src: "172.31.36.166:/"
+        fstype: nfs4
+        opts: defaults
+        state: mounted
+      when: mount_check.rc != 0

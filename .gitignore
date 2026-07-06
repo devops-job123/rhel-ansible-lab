@@ -1,0 +1,3 @@
+*.pem
+*.log
+ansible-navigator.log

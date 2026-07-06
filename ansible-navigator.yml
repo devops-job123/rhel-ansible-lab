@@ -1,0 +1,13 @@
+ansible-navigator:
+  execution-environment:
+    image: ghcr.io/ansible/community-ansible-dev-tools:latest
+    pull:
+      policy: missing
+  logging:
+    append: true
+    file: /home/ubuntu/rhel-ansible-lab/ansible-navigator.log
+    level: warning
+  mode: stdout
+  playbook-artifact:
+    enable: false
+    save-as: '{playbook_dir}/{playbook_name}-artifact-{time_stamp}.json'

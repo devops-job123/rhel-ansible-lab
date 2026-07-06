@@ -1,0 +1,5 @@
+- name: Deploy Apache Web server
+  hosts: web-node-1
+  become: true
+  roles:
+    - geerlingguy.apache

@@ -1,0 +1,10 @@
+nfs_exports:
+  - "/srv/nfs 172.31.0.0/20(rw,sync,no_root_squash)"
+
+security_users:
+  - name: devops
+    group: sudo
+    shell: /bin/bash
+
+security_ssh_permit_login: "no"
+security_ssh_password_authentication: "no"
