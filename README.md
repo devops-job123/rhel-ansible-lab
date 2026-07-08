@@ -55,5 +55,6 @@ ansible-navigator run playbooks/site.yml --mode stdout
 
 
 ---
+
 ## Author
 Amer Al Hasheesh
