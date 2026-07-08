@@ -52,7 +52,6 @@ This project demonstrates a real-world infrastructure automation setup using Ans
 
 ```bash
 ansible-navigator run playbooks/site.yml --mode stdout
----
 
 ---
 
